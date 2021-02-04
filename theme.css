@@ -119,23 +119,23 @@
   --b3-vditor-inline-strong-color: #e8eaed;
   --b3-vditor-inline-em-color: #e8eaed;
   --b3-vditor-inline-s-color: #e8eaed;
-  --b3-vditor-inline-link-color:  #9876aa;
+  --b3-vditor-inline-link-color: #9876aa;
   --b3-vditor-inline-mark-background: #32593c;
   --b3-vditor-inline-mark-color: #e8eaed;
   --b3-vditor-inline-tag-color: #9aa0a6;
-  --b3-vditor-inline-blockref-color: #61AFEF;
+  --b3-vditor-inline-blockref-color: #61afef;
 }
 
 .language-graphviz polygon {
   fill: var(--b3-theme-on-surface);
 }
 
-.block__icons{
+.block__icons {
   background-color: var(--b3-theme-surface) !important;
-} 
+}
 
 /* 富文本工具栏 */
-.vditor-toolbar{
+.vditor-toolbar {
   background-color: var(--b3-theme-background) !important;
   box-shadow: var(--b3-toolbar-shadow);
 }
@@ -146,7 +146,7 @@
 }
 
 /* 块引用内部锚文本颜色改变 */
-.vditor-ir__marker--info{
+.vditor-ir__marker--info {
   color: var(--b3-vditor-inline-blockref-color) !important;
 }
 
@@ -154,7 +154,6 @@
 .MathJax svg {
   font-size: 0.9em !important;
 }
-
 
 /* 大纲样式 */
 .vditor ul li {
@@ -167,7 +166,7 @@
 .vditor ol ul {
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   margin-left: -0.9em !important;
-  padding-left: 2.9em !important;/* 父子结点之间的距离 */
+  padding-left: 2.9em !important; /* 父子结点之间的距离 */
 }
 
 /* 代码主题Atom One Dark下的样式调整 */
@@ -180,4 +179,10 @@
 code {
   line-height: 26px;
   background-color: var(--b3-vditor-code-background) !important;
+}
+
+/* 修复一二级标题的底部横线 */
+.vditor-reset h1,
+.vditor-reset h2 {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
