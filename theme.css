@@ -27,12 +27,19 @@
 
   /* 线条 */
   --b3-border-color: rgb(40, 44, 52);
+  --b3-text-border-color: rgb(170, 178, 180);
+  --b3-table-border-color: rgba(255, 255, 255, 0.1);
 
   /* 滚动条 */
   --b3-scroll-color: rgb(65, 71, 84);
 
   /* 列表 */
   --b3-list-hover: rgba(230, 230, 230, 0.05);
+
+  /* 表格 */
+  --b3-table-th-color: rgb(31, 35, 40);
+  --b3-table-trn-color: rgb(40, 45, 52);
+  --b3-table-tr2n-color: rgb(35, 40, 46);
 
   /* 页签 */
   --b3-tab-background: #21252b;
@@ -58,7 +65,8 @@
   --b3-point-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   --b3-dialog-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.4);
-  --b3-toolbar-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
+  --b3-toolbar-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  --b3-card-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 
   /* diff */
   --b3-diff-add: #133a1c;
@@ -176,13 +184,68 @@
 }
 
 /* 代码块 */
-code {
+.hljs {
   line-height: 26px;
   background-color: var(--b3-vditor-code-background) !important;
+  box-shadow: var(--b3-card-shadow);
+}
+
+/* 代码编辑区 */
+.vditor-ir__marker--pre.vditor-ir__marker code {
+  background-color: #20242b;
 }
 
 /* 修复一二级标题的底部横线 */
 .vditor-reset h1,
 .vditor-reset h2 {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-bottom: 1px solid var(--b3-text-border-color) !important;
+}
+
+/* 引用块 */
+blockquote {
+  border-left: 0.25em solid var(--b3-text-border-color) !important;
+  background-color: var(--b3-vditor-code-background) !important;
+  padding-left: 15px !important;
+  box-shadow: var(--b3-card-shadow);
+}
+
+/* 表格 */
+.vditor-reset table {
+  box-shadow: var(--b3-card-shadow);
+}
+
+.vditor-reset table thead tr {
+  background-color: var(--b3-table-th-color) !important;
+}
+
+.vditor-reset table tbody tr:nth-child(2n + 1) {
+  background-color: var(--b3-table-trn-color) !important;
+}
+
+.vditor-reset table tbody tr:nth-child(2n) {
+  background-color: var(--b3-table-tr2n-color) !important;
+}
+
+.vditor-reset table tr th {
+  border-left: 1px solid var(--b3-table-border-color);
+  border-right: 1px solid var(--b3-table-border-color);
+}
+
+.vditor-reset table tbody tr {
+  border-top: 1px solid var(--b3-table-border-color);
+}
+
+.vditor-reset table tr td {
+  border-left: 1px solid var(--b3-table-border-color);
+  border-right: 1px solid var(--b3-table-border-color);
+}
+
+.vditor-reset table tr th:first-child,
+.vditor-reset table tr td:first-child {
+  border-left-width: 0px;
+}
+
+.vditor-reset table tr th:last-child,
+.vditor-reset table tr td:last-child {
+  border-right-width: 0px;
 }
