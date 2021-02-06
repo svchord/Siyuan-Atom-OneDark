@@ -2,9 +2,27 @@
 
 ## 简介
 
-参考VS Code的One Dark Pro主题，简单地更换了配色
+- 参考
+  - VS Code的One Dark Pro主题
+  - Typora的OneDark主题
+  - Mark Text的One Dark主题
+- 更改了
+  - 整体配色
+  - 
 
 ## 历史版本
+
+### 0.2.5
+
+- 参考Mark Text的One Dark主题
+  - 更改了引用计数块的样式
+  - 更改了代码编辑区的底色
+  - 更改了字数计数器的底色
+- 参考typora的Onedark主题
+  - 修复了大纲样式的语法
+  - 更改了复选框的样式
+- 标题块右移一定距离
+- 调整代码块的行高
 
 ### 0.1.8
 
