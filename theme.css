@@ -8,6 +8,7 @@
   --b3-theme-background: #282c34;
   --b3-theme-surface: #21252b;
   --b3-theme-error: #d23f31;
+  --b3-text-emphasize-color:#363c4a;
 
   /* 文字颜色 */
   --b3-theme-on-primary: #fff;
@@ -66,7 +67,7 @@
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   --b3-dialog-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.4);
   --b3-toolbar-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-  --b3-card-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  --b3-card-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
 
   /* diff */
   --b3-diff-add: #133a1c;
@@ -160,7 +161,7 @@
 
 /* 公式字号调整 */
 .MathJax svg {
-  font-size: 0.8em !important;
+  font-size: 0.9em !important;
 }
 
 /* 大纲样式 */
@@ -192,7 +193,7 @@
 
 /* 代码编辑区 */
 .vditor-ir__marker--pre.vditor-ir__marker code {
-  background-color:#3A3F4B;
+  background-color: #3a3f4b;
 }
 
 /* 标题块 */
@@ -207,7 +208,8 @@
 .vditor-reset h3,
 .vditor-reset h4,
 .vditor-reset h5,
-.vditor-reset h6{
+.vditor-reset h6,
+.vditor-reset > p {
   margin-left: 5px;
 }
 
@@ -260,33 +262,44 @@ blockquote {
   border-right-width: 0px;
 }
 
-/* 块引用预览页面的阴影 */
-.block__popover {
+/* 块引用预览、块嵌入、动态查询的阴影 */
+.block__popover,
+.vditor-ir div[data-type="block-ref-embed"] > div[data-render],
+.vditor-ir div[data-type="block-query-embed"] > div[data-render] {
   box-shadow: var(--b3-card-shadow);
 }
 
+/* 动态查询中间的横线 */
+.vditor-ir
+  div[data-type="block-query-embed"]
+  > div[data-render]
+  > .fn__flex-column:not(:last-child)
+  > .fn__flex-1 {
+  border-bottom: 1px solid var(--b3-text-emphasize-color) !important;
+}
+
 /* 引用计数块的样式 */
-.vditor-ir__menu span{
+.vditor-ir__menu span {
   padding: 0 4px;
   margin-left: -1px;
   border-radius: 4px;
   height: 16px;
   min-width: 16px;
 
-  background-color: #363C4A;
+  background-color: var(--b3-text-emphasize-color);
   color: var(--b3-theme-on-surface);
   font-size: 12px;
   line-height: 16px;
 }
 
 /* 字数计数器的背景颜色 */
-.vditor-counter{
-  background-color: #363C4A;
+.vditor-counter {
+  background-color: var(--b3-text-emphasize-color);
 }
 
 /* 复选框 */
 /* 复选框与文字的距离 */
-.vditor-task input[type="checkbox"]{
+.vditor-task input[type="checkbox"] {
   margin-right: 0.5em;
 }
 
