@@ -5,10 +5,11 @@
   --b3-theme-primary-lighter: rgba(66, 133, 244, 0.38);
   --b3-theme-primary-lightest: rgba(66, 133, 244, 0.12);
   --b3-theme-secondary: #f3a92f;
-  --b3-theme-background: #282c34;
+  --b3-theme-background: var(--SOD-theme-background);
   --b3-theme-surface: #21252b;
   --b3-theme-error: #d23f31;
-  --b3-text-emphasize-color: rgb(58, 63, 75);
+  --SOD-theme-background: #282c34;
+  --SOD-text-emphasize-color: rgb(58, 63, 75);
 
   /* 文字颜色 */
   --b3-theme-on-primary: #fff;
@@ -27,9 +28,9 @@
     "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
 
   /* 线条 */
-  --b3-border-color: rgb(40, 44, 52);
-  --b3-text-border-color: rgb(170, 178, 180);
-  --b3-table-border-color: rgba(255, 255, 255, 0.1);
+  --b3-border-color: var(--SOD-theme-background);
+  --SOD-text-border-color: rgb(170, 178, 180);
+  --SOD-text-border-color: rgba(255, 255, 255, 0.1);
 
   /* 滚动条 */
   --b3-scroll-color: rgb(65, 71, 84);
@@ -38,9 +39,9 @@
   --b3-list-hover: rgba(230, 230, 230, 0.05);
 
   /* 表格 */
-  --b3-table-th-color: rgb(31, 35, 40);
-  --b3-table-trn-color: rgb(40, 45, 52);
-  --b3-table-tr2n-color: rgb(35, 40, 46);
+  --SOD-table-th-color: rgb(31, 35, 40);
+  --SOD-table-trn-color: rgb(40, 45, 52);
+  --SOD-table-tr2n-color: rgb(35, 40, 46);
 
   /* 页签 */
   --b3-tab-background: #21252b;
@@ -66,8 +67,8 @@
   --b3-point-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   --b3-dialog-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.4);
-  --b3-toolbar-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-  --b3-card-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  --SOD-toolbar-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  --SOD-card-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
 
   /* diff */
   --b3-diff-add: #133a1c;
@@ -141,13 +142,13 @@
 
 /* 富文本工具栏 */
 .vditor-toolbar {
-  background-color: var(--b3-theme-background) !important;
-  box-shadow: var(--b3-toolbar-shadow);
+  background-color: var(--SOD-theme-background) !important;
+  box-shadow: var(--SOD-toolbar-shadow);
 }
 
 /* 页签选中时的背景颜色 */
 .item--focus {
-  background-color: var(--b3-theme-background) !important;
+  background-color: var(--SOD-theme-background) !important;
 }
 
 /* 块引用内部锚文本颜色改变 */
@@ -159,14 +160,17 @@
 .MathJax svg {
   font-size: 0.8em !important;
 }
+.katex {
+  font-size: 1.1em !important;
+}
 
 /* 大纲样式 */
 .vditor-ir ul > li:not(.vditor-task) {
   list-style-type: disc;
 }
 
-.vditor-ir ul > li::marker{
-  color: rgba(255, 255, 255, 0.3);
+.vditor-ir ul > li::marker {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .vditor-ir ul p,
@@ -205,13 +209,18 @@
 .hljs {
   line-height: 1.8;
   background-color: var(--b3-vditor-code-background) !important;
-  box-shadow: var(--b3-card-shadow);
+  box-shadow: var(--SOD-card-shadow);
 }
 
 /* 代码编辑区 */
 .vditor-ir__marker--pre code {
-  color: rgb(171, 178, 165);
-  background-color: var(--b3-text-emphasize-color) !important;
+  color: var(--b3-theme-on-background);
+  background-color: var(--SOD-text-emphasize-color) !important;
+}
+
+/* 编辑区显示时不显示预览 */
+.vditor-ir__node.vditor-ir__node--expand .vditor-ir__preview {
+  display: none;
 }
 
 /* 代码中的中文字体 */
@@ -223,15 +232,15 @@
 /* 一二级标题的底部横线 */
 .vditor-ir h1,
 .vditor-ir h2 {
-  border-bottom: 1px solid var(--b3-text-border-color) !important;
+  border-bottom: 1px solid var(--SOD-text-border-color) !important;
 }
 
 /* 引用块 */
 blockquote {
-  border-left: 0.25em solid var(--b3-text-border-color) !important;
+  border-left: 0.25em solid var(--SOD-text-border-color) !important;
   background-color: var(--b3-vditor-code-background) !important;
   padding-left: 1.2em !important;
-  box-shadow: var(--b3-card-shadow);
+  box-shadow: var(--SOD-card-shadow);
 }
 
 /* 三种卡片的样式调整 */
@@ -244,29 +253,29 @@ blockquote {
 
 /* 表格 */
 .vditor-ir table {
-  box-shadow: var(--b3-card-shadow);
+  box-shadow: var(--SOD-card-shadow);
 }
 
 .vditor-ir table thead tr {
-  background-color: var(--b3-table-th-color) !important;
+  background-color: var(--SOD-table-th-color) !important;
 }
 
 .vditor-ir table tbody tr:nth-child(2n + 1) {
-  background-color: var(--b3-table-trn-color) !important;
+  background-color: var(--SOD-table-trn-color) !important;
 }
 
 .vditor-ir table tbody tr:nth-child(2n) {
-  background-color: var(--b3-table-tr2n-color) !important;
+  background-color: var(--SOD-table-tr2n-color) !important;
 }
 
 .vditor-ir table tr th {
-  border-left: 1px solid var(--b3-table-border-color);
-  border-right: 1px solid var(--b3-table-border-color);
+  border-left: 1px solid var(--SOD-text-border-color);
+  border-right: 1px solid var(--SOD-text-border-color);
 }
 
 .vditor-ir table tr td {
-  border-left: 1px solid var(--b3-table-border-color);
-  border-right: 1px solid var(--b3-table-border-color);
+  border-left: 1px solid var(--SOD-text-border-color);
+  border-right: 1px solid var(--SOD-text-border-color);
 }
 
 .vditor-ir table tr th:first-child,
@@ -283,7 +292,7 @@ blockquote {
 .block__popover,
 .vditor-ir div[data-type="block-ref-embed"] > div[data-render],
 .vditor-ir div[data-type="block-query-embed"] > div[data-render] {
-  box-shadow: var(--b3-card-shadow);
+  box-shadow: var(--SOD-card-shadow);
 }
 
 /* 块嵌入中间的横线 */
@@ -292,7 +301,7 @@ blockquote {
   > div[data-render]
   > .fn__flex-column:not(:last-child)
   > .fn__flex-1 {
-  border-bottom: 1px solid var(--b3-text-emphasize-color) !important;
+  border-bottom: 1px solid var(--SOD-text-emphasize-color) !important;
 }
 
 /* 引用计数块的样式 */
@@ -303,35 +312,35 @@ blockquote {
   height: 15.5px;
   min-width: 15.5px;
 
-  background-color: var(--b3-text-emphasize-color);
-  color: var(--b3-theme-on-surface);
+  background-color: var(--b3-list-hover);
+  color: rgba(154, 160, 166, 0.7);
   font-size: 11px;
   line-height: 15.5px;
 }
 
 /* 计数块旁的元素调整 */
-.vditor-ir > h1,
-.vditor-ir > h2,
-.vditor-ir > h3,
-.vditor-ir > h4,
-.vditor-ir > h5,
-.vditor-ir > h6,
-.vditor-ir > p,
-.vditor-ir > blockquote,
-.vditor-ir > .hjls,
-.vditor-ir > table,
-.vditor-ir > ul,
-.vditor-ir > ol {
+.vditor-ir--tip > h1,
+.vditor-ir--tip > h2,
+.vditor-ir--tip > h3,
+.vditor-ir--tip > h4,
+.vditor-ir--tip > h5,
+.vditor-ir--tip > h6,
+.vditor-ir--tip > p,
+.vditor-ir--tip > blockquote,
+.vditor-ir--tip > .hjls,
+.vditor-ir--tip > table,
+.vditor-ir--tip > ul,
+.vditor-ir--tip > ol {
   margin-left: 0.3em;
 }
 
 /* 字数计数器的背景颜色 */
 .vditor-counter {
-  background-color: var(--b3-text-emphasize-color);
+  background-color: var(--SOD-text-emphasize-color);
 }
 
-/* 复选框 */
-/* 复选框样式 */
+/* 任务列表 */
+/* 任务列表样式 */
 .vditor-task input[type="checkbox"]:before {
   content: "";
   display: inline-block;
@@ -345,10 +354,10 @@ blockquote {
   background-color: var(--b3-vditor-code-background);
   margin-top: -0.3rem;
   margin-left: -0.1rem;
-  box-shadow: var(--b3-card-shadow);
+  box-shadow: var(--SOD-card-shadow);
 }
 
-/* 复选框未选中，鼠标悬停 */
+/* 任务列表未选中，鼠标悬停 */
 .vditor-task input[type="checkbox"]:not([disabled]):not(:checked):hover:before {
   content: "\2713";
   font-size: 0.9rem;
@@ -356,7 +365,7 @@ blockquote {
   color: hsl(192, 6%, 40%);
 }
 
-/* 复选框选中 */
+/* 任务列表选中 */
 .vditor-task input[type="checkbox"]:checked:before {
   content: "\2713";
   font-size: 0.9rem;
@@ -364,7 +373,7 @@ blockquote {
   color: rgb(220, 220, 220);
 }
 
-/* 复选框选中，鼠标悬停 */
+/* 任务列表选中，鼠标悬停 */
 .vditor-task input[type="checkbox"]:checked:hover:before {
   content: "\2713";
   font-size: 0.9rem;
@@ -372,12 +381,12 @@ blockquote {
   color: white;
 }
 
-/* 复选框选中后的文本样式 */
-.vditor-task--done p{
-  color: var(--b3-text-emphasize-color);
+/* 任务列表选中后的文本样式 */
+.vditor-task--done p {
+  color: #6e7581;
 }
 
-/* 复选框与文字的距离 */
+/* 任务列表与文字的距离 */
 .vditor-task input[type="checkbox"] {
   margin-right: 0.5em;
 }
@@ -390,7 +399,7 @@ div[data-type="navigation"] .b3-list-item--focus,
 
 /* 文件树页签工具栏样式 */
 .block__icons {
-  box-shadow: var(--b3-toolbar-shadow);
+  box-shadow: var(--SOD-toolbar-shadow);
   background-color: var(--b3-theme-surface);
 }
 
@@ -415,7 +424,5 @@ div[data-type="navigation"] .b3-list-item--focus,
 /* 行内代码块样式 */
 .vditor-ir__node > code {
   padding: 0.1em 0.4em !important;
-  background-color: var(--b3-text-emphasize-color) !important;
+  background-color: var(--SOD-text-emphasize-color) !important;
 }
-
-
