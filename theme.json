@@ -1,8 +1,8 @@
 {
-  "name": "Simple One Dark",
+  "name": "Atom One Dark",
   "author": "Seven Chor",
   "url": "https://github.com/zqhjl",
-  "version": "0.4.6",
+  "version": "0.5.3",
   "modes": [
     "dark"
   ]
