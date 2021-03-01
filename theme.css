@@ -160,7 +160,7 @@
   --b3-vditor-inline-mark-color: #e8eaed;
   --b3-vditor-inline-tag-color: #9aa0a6;
   --b3-vditor-inline-blockref-color: var(--AOD-vditor-inline-blockref-color);
-  --AOD-vditor-inline-link-color: #9876aa;
+  --AOD-vditor-inline-link-color: rgb(77, 120, 204);
   --AOD-vditor-inline-blockref-color: #61afef;
 }
 
@@ -483,6 +483,11 @@ span[data-type="code"] > code {
   background-color: var(--AOD-text-emphasize-color) !important;
 }
 
+/* 超链接样式 */
+.vditor-ir__link {
+  cursor: pointer;
+}
+
 /* UI样式 */
 /* 富文本工具栏 */
 .vditor-toolbar {
@@ -490,7 +495,7 @@ span[data-type="code"] > code {
   box-shadow: var(--AOD-toolbar-shadow);
 }
 
-/* 字数计数块的背景颜色 */
+/* 字数计数器的背景颜色 */
 .vditor-counter {
   background-color: var(--AOD-menu-background);
 }
