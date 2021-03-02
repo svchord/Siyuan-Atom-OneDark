@@ -300,6 +300,10 @@
   color: var(--AOD-menu-color);
 }
 
+.vditor-ir__menu--fold button svg{
+  margin-top: 10px;
+}
+
 /* .vditor-ir__menu--hover:not(.vditor-ir__menu--counter){
   display: none;
 } */
@@ -509,6 +513,11 @@ span[data-type="code"] > code {
 .vditor-reset hr{
   /* height: 1px; */
   background-color: var(--AOD-list-border-color);
+}
+
+/* 折叠块样式 */
+.vditor-ir [data-node-id][fold="1"]{
+  opacity: 0.4;
 }
 
 /* UI样式 */
