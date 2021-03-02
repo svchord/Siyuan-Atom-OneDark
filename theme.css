@@ -94,6 +94,7 @@
   --b3-dialog-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.4);
   --AOD-toolbar-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
   --AOD-card-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  /* --AOD-card-shadow:var(--b3-dialog-shadow); */
 
   /* diff */
   --b3-diff-add: #133a1c;
@@ -215,7 +216,7 @@
 /* 代码块中注释去除斜体样式 */
 .hljs-comment {
   font-style: normal !important;
-  font-family: var(--b3-font-family-code);
+  font-family: var(--b3-font-family);
 }
 
 /* 代码块 */
@@ -447,14 +448,14 @@
 /* 一二级标题的底部横线 */
 .vditor-ir h1,
 .vditor-ir h2 {
-  border-bottom: 1px solid var(--AOD-text-border-color) !important;
+  border-bottom: 1px solid var(--AOD-list-border-color) !important;
 }
 
 /* 引用块 */
 blockquote {
   border-left: 0.25em solid var(--AOD-text-border-color) !important;
   background-color: var(--b3-vditor-code-background) !important;
-  padding: 0.8em 1em 0.8em 1.5em !important;
+  padding: 1.2em 1em 1.2em 1.8em !important;
 }
 
 /* 五种卡片的样式调整 */
@@ -468,6 +469,22 @@ span[data-type="img"] img,
   margin-bottom: 1.5em !important;
   box-shadow: var(--AOD-card-shadow);
 }
+
+/* 多种行内元素的样式调整 */
+span[data-type="strong"],
+span[data-type="code"],
+span[data-type="em"],
+span[data-type="s"],
+span[data-type="a"],
+span[data-type="tag"]
+/* span[data-type="ref-text-tpl-render-result"] */
+{
+  margin: 0 .2em;
+}
+
+/* .b3-menu{
+  box-shadow: var(--AOD-card-shadow);
+} */
 
 /* 动态查询中间的横线 */
 .vditor-ir
@@ -486,6 +503,12 @@ span[data-type="code"] > code {
 /* 超链接样式 */
 .vditor-ir__link {
   cursor: pointer;
+}
+
+/* 分割线样式 */
+.vditor-reset hr{
+  /* height: 1px; */
+  background-color: var(--AOD-list-border-color);
 }
 
 /* UI样式 */
