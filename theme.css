@@ -10,6 +10,12 @@
   src: url("fonts/NotoSansSC-Regular.otf");
 }
 
+@font-face {
+  font-family: "PingFang SC";
+  font-style: normal;
+  src: url("fonts/PingFang-SC-Regular.ttf");
+}
+
 :root {
   /* 主色 */
   --b3-theme-primary: #4285f4;
@@ -33,7 +39,7 @@
   --AOD-todolist-done-color: #6e7581;
 
   /* 字体 */
-  --b3-font-family: "Noto Sans Sc", "Helvetica Neue", "Luxi Sans", "DejaVu Sans",
+  --b3-font-family: "PingFang SC", "Helvetica Neue", "Luxi Sans", "DejaVu Sans",
     "Hiragino Sans GB", "Microsoft Yahei", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
     "EmojiSymbols";
@@ -300,7 +306,7 @@
   color: var(--AOD-menu-color);
 }
 
-.vditor-ir__menu--fold button svg{
+.vditor-ir__menu--fold button svg {
   margin-top: 10px;
 }
 
@@ -310,17 +316,21 @@
 
 /* 引用计数块的样式 */
 .vditor-ir__menu span {
-  padding: 0 3px;
+  padding: .7px 3px 0 3px;
   margin: 2px 0 0 2px;
   border-radius: 4px;
   height: 15.5px;
   min-width: 15.5px;
-  /* background-color: var(--AOD-menu-background);
-  color: var(--b3-theme-on-surface); */
   background-color: var(--b3-theme-surface);
   color: var(--AOD-menu-color);
   font-size: 11px;
   line-height: 15.5px;
+}
+
+/* 备注时引用计数块的样式 */
+.vditor-ir__menu--memo span{
+  background-color: var(--AOD-menu-background);
+  color: var(--b3-theme-on-surface);
 }
 
 .vditor-ir__menu[title^="标题"]:not([style$="left:-44px"]):not([style$="left:-66px"]) {
@@ -406,6 +416,42 @@
   margin-right: 0.5em;
 }
 
+/* 标题块 */
+/* 一二级标题的底部横线 */
+.vditor-ir h1,
+.vditor-ir h2 {
+  border-bottom: 1px solid var(--AOD-list-border-color) !important;
+}
+
+.vditor-ir h1,
+.vditor-ir h2,
+.vditor-ir h3,
+.vditor-ir h4,
+.vditor-ir h5,
+.vditor-ir h6{
+  padding-top: .6em;
+  margin-bottom: .4em;
+}
+
+/* 列表块中的标题块样式 */
+.vditor-ir ul h1,
+.vditor-ir ul h2,
+.vditor-ir ul h3,
+.vditor-ir ul h4,
+.vditor-ir ul h5,
+.vditor-ir ul h6,
+.vditor-ir ol h1,
+.vditor-ir ol h2,
+.vditor-ir ol h3,
+.vditor-ir ol h4,
+.vditor-ir ol h5,
+.vditor-ir ol h6 {
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  line-height: 2;
+}
+
 /* 标签样式 */
 .vditor-ir span[data-type="tag"] {
   font-size: 85%;
@@ -448,13 +494,6 @@
   /* text-align: justify; */
 }
 
-/* 标题块 */
-/* 一二级标题的底部横线 */
-.vditor-ir h1,
-.vditor-ir h2 {
-  border-bottom: 1px solid var(--AOD-list-border-color) !important;
-}
-
 /* 引用块 */
 blockquote {
   border-left: 0.25em solid var(--AOD-text-border-color) !important;
@@ -480,10 +519,10 @@ span[data-type="code"],
 span[data-type="em"],
 span[data-type="s"],
 span[data-type="a"],
-span[data-type="tag"]
-/* span[data-type="ref-text-tpl-render-result"] */
-{
-  margin: 0 .2em;
+span[data-type="tag"],
+span[data-type="inline-math"]
+/* span[data-type="ref-text-tpl-render-result"] */ {
+  margin: 0 0.2em;
 }
 
 /* .b3-menu{
@@ -510,14 +549,25 @@ span[data-type="code"] > code {
 }
 
 /* 分割线样式 */
-.vditor-reset hr{
+.vditor-reset hr {
   /* height: 1px; */
   background-color: var(--AOD-list-border-color);
 }
 
 /* 折叠块样式 */
-.vditor-ir [data-node-id][fold="1"]{
+.vditor-ir [data-node-id][fold="1"] {
   opacity: 0.4;
+}
+
+/* 命名、别名的样式 */
+.vditor-ir--tip *[tip]:not([fold="1"]){
+  box-shadow: var(--AOD-card-shadow);
+}
+
+.vditor-ir--tip *[tip]:not([fold="1"])::before{
+  border-radius: 3px;
+  padding: .2em .4em;
+  background-color: var(--b3-theme-surface);
 }
 
 /* UI样式 */
