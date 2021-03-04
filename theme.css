@@ -43,7 +43,7 @@
     "Hiragino Sans GB", "Microsoft Yahei", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
     "EmojiSymbols";
-  --b3-font-family-code: "Jetbrains Mono", mononoki, Consolas, "Liberation Mono",
+  --b3-font-family-code: "Jetbrains Mono","PingFang SC", mononoki, Consolas, "Liberation Mono",
     Menlo, Courier, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji",
     "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
 
@@ -175,6 +175,39 @@
   fill: var(--b3-theme-on-surface);
 }
 
+/* UI样式 */
+/* 富文本工具栏 */
+.vditor-toolbar {
+  background-color: var(--AOD-theme-background) !important;
+  box-shadow: var(--AOD-toolbar-shadow);
+}
+
+/* 字数计数器的背景颜色 */
+.vditor-counter {
+  background-color: var(--AOD-menu-background);
+}
+
+/* 文件树页签内选中的样式 */
+div[data-type="navigation"] .b3-list-item--focus,
+.vditor-reset .b3-list-item--focus {
+  background-color: var(--AOD-tab-background-focus) !important;
+}
+
+/* 文件树页签工具栏样式 */
+.block__icons {
+  box-shadow: var(--AOD-toolbar-shadow);
+  background-color: var(--b3-theme-surface);
+}
+
+/* 页签选中时的背景颜色 */
+.item--focus {
+  background-color: var(--AOD-theme-background) !important;
+}
+
+
+/* -------------------------------------------------------------- */
+
+
 /* 编辑器样式 */
 
 /* 大纲样式 */
@@ -196,7 +229,7 @@
 .vditor-ir ul ol,
 .vditor-ir ul ul {
   border-left: 1px solid var(--AOD-list-border-color);
-  margin-left: -0.96em !important;
+  margin-left: -0.9em !important;
   padding-left: 2.8em !important; /* 父子结点之间的距离 */
 }
 
@@ -204,7 +237,7 @@
 .vditor-ir ol ol,
 .vditor-ir ol ul {
   border-left: 1px solid var(--AOD-list-border-color);
-  margin-left: -0.8em !important;
+  margin-left: -0.9em !important;
   padding-left: 2.8em !important; /* 父子结点之间的距离 */
 }
 
@@ -222,7 +255,6 @@
 /* 代码块中注释去除斜体样式 */
 .hljs-comment {
   font-style: normal !important;
-  font-family: var(--b3-font-family);
 }
 
 /* 代码块 */
@@ -240,11 +272,6 @@
 /* 代码编辑区显示时不显示预览 */
 .vditor-ir__node--expand:not([data-type="inline-math"]) .vditor-ir__preview {
   display: none;
-}
-
-/* 代码中的中文字体 */
-.vditor-ir__marker--script {
-  font-family: var(--b3-font-family-code);
 }
 
 /* 表格 */
@@ -474,10 +501,16 @@
   color: var(--b3-vditor-inline-blockref-color) !important;
 }
 
+.vditor-ir__marker{
+  cursor: text;
+}
+
 /* 块引用预览的样式 */
 .block__popover {
   box-shadow: var(--AOD-card-shadow);
 }
+
+/* ------------------------------------------------------- */
 
 /* 公式字号调整 */
 .MathJax svg {
@@ -525,6 +558,11 @@ span[data-type="inline-math"]
   margin: 0 0.2em;
 }
 
+span[data-type="code"]{
+  font-style: normal;
+  font-weight: normal;
+}
+
 /* .b3-menu{
   box-shadow: var(--AOD-card-shadow);
 } */
@@ -539,6 +577,11 @@ span[data-type="inline-math"]
 }
 
 /* 行内代码块样式 */
+/* span[data-type="code"]{
+  display: inline-block;
+  white-space: nowrap;
+} */
+
 span[data-type="code"] > code {
   background-color: var(--AOD-text-emphasize-color) !important;
 }
@@ -561,7 +604,8 @@ span[data-type="code"] > code {
 
 /* 命名、别名的样式 */
 .vditor-ir--tip *[tip]:not([fold="1"]){
-  box-shadow: var(--AOD-card-shadow);
+  border-radius: 3px;
+  border-right: 2px solid var(--AOD-text-emphasize-color);
 }
 
 .vditor-ir--tip *[tip]:not([fold="1"])::before{
@@ -570,31 +614,3 @@ span[data-type="code"] > code {
   background-color: var(--b3-theme-surface);
 }
 
-/* UI样式 */
-/* 富文本工具栏 */
-.vditor-toolbar {
-  background-color: var(--AOD-theme-background) !important;
-  box-shadow: var(--AOD-toolbar-shadow);
-}
-
-/* 字数计数器的背景颜色 */
-.vditor-counter {
-  background-color: var(--AOD-menu-background);
-}
-
-/* 文件树页签内选中的样式 */
-div[data-type="navigation"] .b3-list-item--focus,
-.vditor-reset .b3-list-item--focus {
-  background-color: var(--AOD-tab-background-focus) !important;
-}
-
-/* 文件树页签工具栏样式 */
-.block__icons {
-  box-shadow: var(--AOD-toolbar-shadow);
-  background-color: var(--b3-theme-surface);
-}
-
-/* 页签选中时的背景颜色 */
-.item--focus {
-  background-color: var(--AOD-theme-background) !important;
-}
