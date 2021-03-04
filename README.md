@@ -19,9 +19,6 @@
         - 大纲
 
           ![大纲](https://user-images.githubusercontent.com/61345763/109588091-25139e00-7b43-11eb-8a7e-ae405769bb9c.png)
-        - 代码块
-
-          ![代码块](https://user-images.githubusercontent.com/61345763/109588114-3361ba00-7b43-11eb-96f4-937c9b4bf25d.png)
         - 表格
 
           ![表格](https://user-images.githubusercontent.com/61345763/109588200-54c2a600-7b43-11eb-8e3f-b81e56062e5f.png)
