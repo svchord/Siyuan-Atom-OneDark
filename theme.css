@@ -5,12 +5,6 @@
 }
 
 @font-face {
-  font-family: "Noto Sans SC";
-  font-style: normal;
-  src: url("fonts/NotoSansSC-Regular.otf");
-}
-
-@font-face {
   font-family: "PingFang SC";
   font-style: normal;
   src: url("fonts/PingFang-SC-Regular.ttf");
@@ -28,6 +22,8 @@
   --b3-theme-error: #d23f31;
   --AOD-theme-surface: #21252b;
   --AOD-theme-background: #282c34;
+  --AOD-theme-highlight: rgb(64, 72, 89);
+  --AOD-theme-selected-highlight: rgb(64, 72, 89);
   --AOD-text-emphasize-color: rgb(58, 63, 75);
 
   /* 文字颜色 */
@@ -43,9 +39,9 @@
     "Hiragino Sans GB", "Microsoft Yahei", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
     "EmojiSymbols";
-  --b3-font-family-code: "Jetbrains Mono","PingFang SC", mononoki, Consolas, "Liberation Mono",
-    Menlo, Courier, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji",
-    "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
+  --b3-font-family-code: "Jetbrains Mono", "PingFang SC", mononoki, Consolas,
+    "Liberation Mono", Menlo, Courier, "Apple Color Emoji", "Segoe UI Emoji",
+    "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
 
   /* 线条 */
   --b3-border-color: var(--AOD-theme-background);
@@ -69,6 +65,7 @@
   /* 页签 */
   --b3-tab-background: var(--AOD-tab-background);
   --b3-tab-background-hover: var(--AOD-tab-background-hover);
+  --AOD-menu-background: rgb(44, 49, 58);
   --AOD-tab-background: #21252b;
   --AOD-tab-background-hover: #323842;
   --AOD-tab-background-focus: #2c313a;
@@ -204,9 +201,22 @@ div[data-type="navigation"] .b3-list-item--focus,
   background-color: var(--AOD-theme-background) !important;
 }
 
+.vditor-toolbar__item:hover,
+.b3-menu__item:hover:not(.b3-menu__item--readonly):not(.b3-menu__item--custom),
+.b3-menu__item--current {
+  background-color: var(--AOD-menu-background) !important;
+}
+
+.layout-tab-bar .item {
+  border: none;
+  padding: 5px 8px;
+}
+
+.layout-tab-bar .item:hover {
+  background-color: var(--AOD-tab-background-hover) !important;
+}
 
 /* -------------------------------------------------------------- */
-
 
 /* 编辑器样式 */
 
@@ -343,7 +353,7 @@ div[data-type="navigation"] .b3-list-item--focus,
 
 /* 引用计数块的样式 */
 .vditor-ir__menu span {
-  padding: .7px 3px 0 3px;
+  padding: 0.7px 3px 0 3px;
   margin: 2px 0 0 2px;
   border-radius: 4px;
   height: 15.5px;
@@ -355,40 +365,40 @@ div[data-type="navigation"] .b3-list-item--focus,
 }
 
 /* 备注时引用计数块的样式 */
-.vditor-ir__menu--memo span{
+.vditor-ir__menu--memo span {
   background-color: var(--AOD-menu-background);
   color: var(--b3-theme-on-surface);
 }
 
-.vditor-ir__menu[title^="标题"]:not([style$="left:-44px"]):not([style$="left:-66px"]) {
-  margin-top: 8px;
-}
+/* .vditor-ir__menu[title^="标题"]:not([style$="left:-44px"]):not([style$="left:-66px"]) {
+  margin-top: 0px;
+} */
 
 /* .vditor div[style$="left:-22px"]:not([title^="无序列表"]):not([title^="有序列表"]):not([title^="列表项"]) {
   margin-left: -3em;
 } */
 
 /* 计数块旁的元素调整 */
-.vditor-ir--tip > h1,
-.vditor-ir--tip > h2,
-.vditor-ir--tip > h3,
-.vditor-ir--tip > h4,
-.vditor-ir--tip > h5,
-.vditor-ir--tip > h6 {
+.vditor-ir .vditor-reset > h1,
+.vditor-ir .vditor-reset > h2,
+.vditor-ir .vditor-reset > h3,
+.vditor-ir .vditor-reset > h4,
+.vditor-ir .vditor-reset > h5,
+.vditor-ir .vditor-reset > h6 {
   margin-left: 7px;
   line-height: 2;
 }
 
-.vditor-ir--tip > p,
-.vditor-ir--tip > .hjls,
-.vditor-ir--tip > table,
-.vditor-ir--tip > ul,
-.vditor-ir--tip > ol,
-.vditor-ir--tip > .vditor-ir__node {
+.vditor-ir .vditor-reset > p,
+.vditor-ir .vditor-reset > .hjls,
+.vditor-ir .vditor-reset > table,
+.vditor-ir .vditor-reset > ul,
+.vditor-ir .vditor-reset > ol,
+.vditor-ir .vditor-reset > .vditor-ir__node {
   margin-left: 7px;
 }
 
-.vditor-ir--tip > blockquote {
+.vditor-ir .vditor-reset > blockquote {
   margin-left: 0.55em;
 }
 
@@ -450,7 +460,7 @@ div[data-type="navigation"] .b3-list-item--focus,
   border-bottom: 1px solid var(--AOD-list-border-color) !important;
 }
 
-.vditor-ir h1,
+/* .vditor-ir h1,
 .vditor-ir h2,
 .vditor-ir h3,
 .vditor-ir h4,
@@ -458,7 +468,7 @@ div[data-type="navigation"] .b3-list-item--focus,
 .vditor-ir h6{
   padding-top: .6em;
   margin-bottom: .4em;
-}
+} */
 
 /* 列表块中的标题块样式 */
 .vditor-ir ul h1,
@@ -501,7 +511,7 @@ div[data-type="navigation"] .b3-list-item--focus,
   color: var(--b3-vditor-inline-blockref-color) !important;
 }
 
-.vditor-ir__marker{
+.vditor-ir__marker {
   cursor: text;
 }
 
@@ -522,7 +532,7 @@ div[data-type="navigation"] .b3-list-item--focus,
 }
 
 /* 段落块样式 */
-.vditor-ir--tip p:not(img) {
+.vditor-ir p:not(img) {
   line-height: 2;
   /* text-align: justify; */
 }
@@ -558,7 +568,7 @@ span[data-type="inline-math"]
   margin: 0 0.2em;
 }
 
-span[data-type="code"]{
+span[data-type="code"] {
   font-style: normal;
   font-weight: normal;
 }
@@ -603,14 +613,32 @@ span[data-type="code"] > code {
 }
 
 /* 命名、别名的样式 */
-.vditor-ir--tip *[tip]:not([fold="1"]){
+.vditor-ir *[tip]:not([fold="1"]) {
   border-radius: 3px;
   border-right: 2px solid var(--AOD-text-emphasize-color);
 }
 
-.vditor-ir--tip *[tip]:not([fold="1"])::before{
+.vditor-ir *[tip]:not([fold="1"])::before {
   border-radius: 3px;
-  padding: .2em .4em;
+  padding: 0.2em 0.4em;
   background-color: var(--b3-theme-surface);
 }
 
+/* mermaid */
+.edgeLabels * {
+  background-color: var(--AOD-theme-background) !important;
+}
+
+/* 高亮 */
+.vditor-ir__hl {
+  background-color: var(--AOD-theme-highlight) !important;
+}
+
+/* webkit, opera, IE9 */
+::selection {
+  background: var(--AOD-theme-selected-highlight);
+}
+/* mozilla firefox */
+::-moz-selection {
+  background: var(--AOD-theme-selected-highlight);
+}
