@@ -5,9 +5,9 @@
 }
 
 @font-face {
-  font-family: "PingFang SC";
+  font-family: "Noto Sans SC";
   font-style: normal;
-  src: url("fonts/PingFang-SC-Regular.ttf");
+  src: url("fonts/NotoSansSC-Regular.otf");
 }
 
 :root {
@@ -35,11 +35,12 @@
   --AOD-todolist-done-color: #6e7581;
 
   /* 字体 */
-  --b3-font-family: "PingFang SC", "Helvetica Neue", "Luxi Sans", "DejaVu Sans",
+  --b3-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Noto Sans SC", Helvetica, "Helvetica Neue", "Luxi Sans", "DejaVu Sans",
     "Hiragino Sans GB", "Microsoft Yahei", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
     "EmojiSymbols";
-  --b3-font-family-code: "Jetbrains Mono", "PingFang SC", mononoki, Consolas,
+  --b3-font-family-code: "Jetbrains Mono","Noto Sans SC", mononoki, Consolas,
     "Liberation Mono", Menlo, Courier, "Apple Color Emoji", "Segoe UI Emoji",
     "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
 
@@ -221,6 +222,11 @@ div[data-type="navigation"] .b3-list-item--focus,
 /* 编辑器样式 */
 
 /* 大纲样式 */
+.vditor-ir ul,
+.vditor-ir ol{
+  margin-bottom: 20px;
+}
+
 .vditor-ir ul > li:not(.vditor-task) {
   list-style-type: disc;
 }
@@ -231,8 +237,8 @@ div[data-type="navigation"] .b3-list-item--focus,
 
 .vditor-ir ul p,
 .vditor-ir ol p {
-  margin-bottom: 0;
-  /* line-height: 2; */
+  margin-bottom: 0 !important;
+  line-height: 2 !important;
 }
 
 /* 无序列表 */
@@ -370,9 +376,15 @@ div[data-type="navigation"] .b3-list-item--focus,
   color: var(--b3-theme-on-surface);
 }
 
-/* .vditor-ir__menu[title^="标题"]:not([style$="left:-44px"]):not([style$="left:-66px"]) {
-  margin-top: 0px;
-} */
+.vditor-ir__menu[title^="标题"]:not([style$="left:-44px"]):not([style$="left:-66px"]) {
+  margin-top: 0em;
+}
+
+.vditor-ir__menu[title^="嵌入块"]:not([style$="left:-44px"]):not([style$="left:-66px"]),
+.vditor-ir__menu[title^="查询块"]:not([style$="left:-44px"]):not([style$="left:-66px"]),
+.vditor-ir__menu[title^="段落"]:not([style$="left:-44px"]):not([style$="left:-66px"]) {
+  margin-top: -4px;
+}
 
 /* .vditor div[style$="left:-22px"]:not([title^="无序列表"]):not([title^="有序列表"]):not([title^="列表项"]) {
   margin-left: -3em;
@@ -496,7 +508,7 @@ div[data-type="navigation"] .b3-list-item--focus,
   background-color: var(--b3-theme-primary-light);
   border-radius: 3px;
   cursor: pointer;
-  padding: 0.1em 0.4em;
+  padding: 0.2em 0.4em;
   white-space: nowrap;
 }
 
@@ -533,7 +545,8 @@ div[data-type="navigation"] .b3-list-item--focus,
 
 /* 段落块样式 */
 .vditor-ir p:not(img) {
-  line-height: 2;
+  line-height: 1.6;
+  margin-bottom: 20px;
   /* text-align: justify; */
 }
 
