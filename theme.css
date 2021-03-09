@@ -12,7 +12,7 @@
 
 :root {
   /* 主色 */
-  --b3-theme-primary: #4285f4;
+  --b3-theme-primary: rgb(77, 120, 204);
   --b3-theme-primary-light: rgba(66, 133, 244, 0.54);
   --b3-theme-primary-lighter: rgba(66, 133, 244, 0.38);
   --b3-theme-primary-lightest: rgba(66, 133, 244, 0.12);
@@ -51,7 +51,7 @@
 
   /* 滚动条 */
   --b3-scroll-color: var(--AOD-scroll-color);
-  --AOD-scroll-color: rgb(65, 71, 84);
+  --AOD-scroll-color: rgb(50, 56, 66);
 
   /* 列表 */
   --b3-list-hover: rgba(230, 230, 230, 0.05);
@@ -66,7 +66,7 @@
   /* 页签 */
   --b3-tab-background: var(--AOD-tab-background);
   --b3-tab-background-hover: var(--AOD-tab-background-hover);
-  --AOD-menu-background: rgb(44, 49, 58);
+  --AOD-menu-list-background: rgb(44, 49, 58);
   --AOD-tab-background: #21252b;
   --AOD-tab-background-hover: #323842;
   --AOD-tab-background-focus: #2c313a;
@@ -96,8 +96,9 @@
   --b3-point-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   --b3-dialog-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.4);
-  --AOD-toolbar-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+  --AOD-panel-shadow: 0 6px 6px -6px #000000 inset;
   --AOD-card-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  --AOD-toolbar-shadow: 0 0px 6px #000000;
   /* --AOD-card-shadow:var(--b3-dialog-shadow); */
 
   /* diff */
@@ -174,18 +175,50 @@
 }
 
 /* UI样式 */
+
 /* 富文本工具栏 */
 .vditor-toolbar {
+  border: none;
   background-color: var(--AOD-theme-background) !important;
   box-shadow: var(--AOD-toolbar-shadow);
 }
 
-/* 字数计数器的背景颜色 */
+.vditor-toolbar__divider{
+  margin: 4.5px 6px;
+  height: 13px;
+}
+
+.vditor-toolbar__item {
+  color: var(--b3-theme-on-surface) !important;
+  margin: 0 2px;
+  padding: 0px 4px;
+  height: 22px;
+}
+
+.vditor-toolbar__item svg{
+  width: 11.5px;
+  height: 11.5px;
+}
+
+.vditor-toolbar__item[data-type="upload"]{
+  padding-top: 6px;
+  width: 22px;
+
+}
+
+/* 字数计数器*/
 .vditor-counter {
+  font-size: 11px;
+  margin-top: 0.25em;
   background-color: var(--AOD-menu-background);
 }
 
-/* 文件树页签内选中的样式 */
+/* 文件树页签列表 */
+div[data-type="navigation"],
+.block__icons + .fn__flex-1{
+  box-shadow: var(--AOD-panel-shadow);
+}
+
 div[data-type="navigation"] .b3-list-item--focus,
 .vditor-reset .b3-list-item--focus {
   background-color: var(--AOD-tab-background-focus) !important;
@@ -193,9 +226,9 @@ div[data-type="navigation"] .b3-list-item--focus,
 
 /* 文件树页签工具栏样式 */
 .block__icons {
-  box-shadow: var(--AOD-toolbar-shadow);
   background-color: var(--b3-theme-surface);
 }
+
 
 /* 页签选中时的背景颜色 */
 .item--focus {
@@ -203,9 +236,17 @@ div[data-type="navigation"] .b3-list-item--focus,
 }
 
 .vditor-toolbar__item:hover,
-.b3-menu__item:hover:not(.b3-menu__item--readonly):not(.b3-menu__item--custom),
-.b3-menu__item--current {
-  background-color: var(--AOD-menu-background) !important;
+.b3-menu__item--current{
+  background-color: rgb(62, 66, 73) !important;
+}
+
+.b3-menu__item:hover:not(.b3-menu__item--readonly):not(.b3-menu__item--custom) {
+  background-color: var(--AOD-menu-list-background) !important;
+}
+
+.b3-menu__item:hover:not(.b3-menu__item--readonly):not(.b3-menu__item--custom) *,
+.b3-menu__item--current *{
+  color: var(--b3-theme-on-background) !important;
 }
 
 .layout-tab-bar .item {
@@ -217,7 +258,13 @@ div[data-type="navigation"] .b3-list-item--focus,
   background-color: var(--AOD-tab-background-hover) !important;
 }
 
-/* -------------------------------------------------------------- */
+/* 滚动条 */
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(61, 68, 80) !important;
+}
+
+/* -------------------------------------------------------------------------------------------------------------- */
 
 /* 编辑器样式 */
 
@@ -232,7 +279,7 @@ div[data-type="navigation"] .b3-list-item--focus,
 }
 
 .vditor-ir ul > li::marker {
-  color: var(--AOD-list-color);
+  color:var(--AOD-list-border-color);
 }
 
 .vditor-ir ul p,
@@ -253,7 +300,7 @@ div[data-type="navigation"] .b3-list-item--focus,
 .vditor-ir ol ol,
 .vditor-ir ol ul {
   border-left: 1px solid var(--AOD-list-border-color);
-  margin-left: -0.9em !important;
+  margin-left: -0.72em !important;
   padding-left: 2.8em !important; /* 父子结点之间的距离 */
 }
 
@@ -359,7 +406,7 @@ div[data-type="navigation"] .b3-list-item--focus,
 
 /* 引用计数块的样式 */
 .vditor-ir__menu span {
-  padding: 0.7px 3px 0 3px;
+  padding: 0px 3px;
   margin: 2px 0 0 2px;
   border-radius: 4px;
   height: 15.5px;
@@ -472,7 +519,7 @@ div[data-type="navigation"] .b3-list-item--focus,
   border-bottom: 1px solid var(--AOD-list-border-color) !important;
 }
 
-/* .vditor-ir h1,
+.vditor-ir h1,
 .vditor-ir h2,
 .vditor-ir h3,
 .vditor-ir h4,
@@ -480,7 +527,7 @@ div[data-type="navigation"] .b3-list-item--focus,
 .vditor-ir h6{
   padding-top: .6em;
   margin-bottom: .4em;
-} */
+}
 
 /* 列表块中的标题块样式 */
 .vditor-ir ul h1,
@@ -530,6 +577,16 @@ div[data-type="navigation"] .b3-list-item--focus,
 /* 块引用预览的样式 */
 .block__popover {
   box-shadow: var(--AOD-card-shadow);
+  animation: showBlock 0.3s ease-in-out;
+}
+
+@keyframes showBlock {
+  0% {
+    border-bottom-left-radius: 50%;
+  }
+  100% {
+    border-bottom-left-radius: 3px;
+  }
 }
 
 /* ------------------------------------------------------- */
