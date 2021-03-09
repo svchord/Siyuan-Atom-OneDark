@@ -175,7 +175,6 @@
 }
 
 /* UI样式 */
-
 /* 富文本工具栏 */
 .vditor-toolbar {
   border: none;
@@ -203,7 +202,6 @@
 .vditor-toolbar__item[data-type="upload"]{
   padding-top: 6px;
   width: 22px;
-
 }
 
 /* 字数计数器*/
@@ -582,10 +580,12 @@ div[data-type="navigation"] .b3-list-item--focus,
 
 @keyframes showBlock {
   0% {
-    border-bottom-left-radius: 50%;
+    margin-top:6.5px;
+    opacity: 0;
   }
   100% {
-    border-bottom-left-radius: 3px;
+    margin-top:0px;
+    opacity: 1;
   }
 }
 
